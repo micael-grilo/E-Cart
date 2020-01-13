@@ -1,9 +1,9 @@
 import redis
 import copy
 from functools import wraps
-from exception import ErrorMessage
-from decorators import raise_exception
-from serializer import Serializer
+from .exception import ErrorMessage
+from .decorators import raise_exception
+from .serializer import Serializer
 
 TTL = 604800
 
@@ -128,7 +128,7 @@ class Cart(object):
         """
             Returns all the products and their details present in the cart as a dictionary
         """
-        return {key: Serializer.loads(value) for key, value in self.__get_raw_cart().iteritems()}
+        return {key: Serializer.loads(value) for key, value in self.__get_raw_cart().items()}
 
     @raise_exception("count can't be obtained due to Error: ")
     def count(self):
