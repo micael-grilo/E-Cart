@@ -1,6 +1,6 @@
 import json
 from functools import wraps
-from exception import ErrorMessage
+from .exception import ErrorMessage
 
 
 def singleton(class_):
