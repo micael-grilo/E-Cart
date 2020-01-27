@@ -29,11 +29,11 @@ class Cart(object):
         self.destroy = self.__del__
 
     @raise_exception("ttl can't be set due to Error: ")
-    def set_ttl(self, expiry_time=TTL):
+    def set_ttl(self):
         """
             Update the ttl of the cart
         """
-        return self.redis_connection.expire(self.user_redis_key, expiry_time)
+        return self.redis_connection.expire(self.user_redis_key, self.ttl)
 
     @raise_exception("ttl can't be obtained due to Error: ")
     def get_ttl(self):
